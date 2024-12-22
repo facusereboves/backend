@@ -95,11 +95,11 @@ export const deleteProductCart = async (req,res)=> {
     try {
         const cartId = req.params.cid                          
         const productId = req.params.pid
-        const cart = await cartModel.findOne({_id: cartId}) //findOne({nombre_atributo: valor}) -> findOne({_id: cartId})
+        const cart = await cartModel.findOne({_id: cartId}) 
         const indice = cart.products.findIndex(prod => prod.id_prod._id == productId)
         if(indice != -1) {
             cart.products.splice(indice, 1)
-            cart.save() //Guardo los cambios producidos en el modelo en mi bdd
+            cart.save() 
             res.status(200).send(cart)
         } else {
             res.status(404).send("Producto no existe")
@@ -113,8 +113,8 @@ export const deleteProductCart = async (req,res)=> {
 
 export const deleteCart = async (req,res)=> {
     try {
-        const cartId = req.params.cid                          //Atributo - id Referencia
-        const cart = await cartModel.findOne({_id: cartId}) //findOne({nombre_atributo: valor}) -> findOne({_id: cartId})
+        const cartId = req.params.cid                      
+        const cart = await cartModel.findOne({_id: cartId}) 
         cart.products = []
         cart.save()
         res.status(200).send(cart)
