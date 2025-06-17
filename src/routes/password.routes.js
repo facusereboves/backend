@@ -6,7 +6,7 @@ import { userModel } from '../models/user.models.js';
 const router = Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'secreto123';
 
-// 1️⃣ Ruta para solicitar recuperación de contraseña
+// Ruta para solicitar recuperación de contraseña
 router.post('/forgot-password', async (req, res) => {
 const { email } = req.body;
 
@@ -30,7 +30,7 @@ try {
 }
 });
 
-// 2️⃣ Ruta para restablecer contraseña
+// Ruta para restablecer contraseña
 router.post('/reset-password/:token', async (req, res) => {
 const { token } = req.params;
 const { newPassword } = req.body;

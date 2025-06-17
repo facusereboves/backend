@@ -56,7 +56,7 @@ app.set('view engine', 'handlebars')
 app.set('views', path.join(__dirname, 'views'))
 
 // Archivos públicos
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Rutas
 app.use('/api/products', productRouter)

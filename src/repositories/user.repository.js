@@ -1,4 +1,3 @@
-// src/repositories/user.repository.js
 export default class UserRepository {
 constructor(dao) {
     this.dao = dao;
